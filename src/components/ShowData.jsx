@@ -1,22 +1,30 @@
 import React from 'react'
 import styled from 'styled-components';
+// import '~video-react/styles/scss/video-react'; // or import scss // import css
+import { Player } from 'video-react';
 
-const ShowData = ({ title, video , tags}) => {
+const ShowData = ({ title, video, tags }) => {
    const keyWord = title.split(":")
    return (
       <CardContainer>
          <CardTitle>
             <span>Key : {keyWord[0]}</span>
-            <span style={{fontFamily:"Poppins"}}>{keyWord[1]}</span>
+            <span style={{ fontFamily: "Poppins" }}>{keyWord[1]}</span>
          </CardTitle>
-         <CardVideo
+         {/* <CardVideo
+            loading='lazy'
             src={video}
             title={title}
             allowFullScreen
-         />
+         /> */}
+         <CardVideo>
+            <Player>
+               <source src={video} />
+            </Player>
+         </CardVideo>
          <CardBenifit>
-            <span style={{fontWeight:"bold"}}>Benifits:</span>{tags?.map((el,indx)=>{
-               return(
+            <span style={{ fontWeight: "bold" }}>Benifits:</span>{tags?.map((el, indx) => {
+               return (
                   <span key={indx}>{el}</span>
                )
             })}
@@ -67,8 +75,8 @@ const CardBenifit = styled.span`
   font-size: 12px;
 `;
 
-const CardVideo = styled.iframe`
+const CardVideo = styled.div`
   width: 100%;
-  height: 200px;
+  height: 220px;
   background-color: #fff !important;
 `;
