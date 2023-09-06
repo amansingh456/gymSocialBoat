@@ -53,3 +53,17 @@ ul {
   list-style: none;
 }
 
+
+::-webkit-scrollbar{
+  width: 1.5rem;
+}
+
+::-webkit-scrollbar-track{
+  background-color: #ffffff;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #6765f0;
+  border-radius: 1rem;
+  border: 0.5rem solid transparent;
+  background-clip: content-box;
+}

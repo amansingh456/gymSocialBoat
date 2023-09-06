@@ -11,12 +11,12 @@ import ShowData from './ShowData'
 
 
 const Home = () => {
-   const [query, setQuery] = useState("fitness")
+   const [query, setQuery] = useState("gym")
    const [allData, setAllData] = useState([])
    const container = useRef(null)
 
    const getData = () =>{
-      axios.get(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=${query}&numResults=20`)
+      axios.get(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=${query}&numResults=10`)
       .then((res)=>{
          setAllData(res.data.results)
       })
@@ -52,10 +52,14 @@ const Home = () => {
                   Exercise is the key to a <span style={{ color: "#6765f0" }}>Healthy</span> Lifestyle
                </Text>
             </Box>
-            <Box ref={container} w={{ sm: "300px", md: "500px" }} >
+            <Box ref={container} w={{ sm: "200px", md: "400px" }} >
             </Box>
          </Flex>
-         {allData?.map((item)=><ShowData item={item}/>)}
+         {/* {console.log(allData[0])} */}
+         <Box className="cardHolder" mt={{base:"20px", sm:"30px", md:"10px"}}>
+            {allData?.map((item, ind)=><ShowData  key={ind} tags={item.tags} title={item.heading} video={item.video}/>)}
+         </Box>
+         
       </Box>
    )
 }
