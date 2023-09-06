@@ -5,23 +5,26 @@ import { Player } from 'video-react';
 
 const ShowData = ({ title, video, tags }) => {
    const keyWord = title.split(":")
+   // console.log(video)
+   const vidSrc = video.slice(4)
+   console.log(vidSrc)
    return (
       <CardContainer>
          <CardTitle>
             <span>Key : {keyWord[0]}</span>
             <span style={{ fontFamily: "Poppins" }}>{keyWord[1]}</span>
          </CardTitle>
-         {/* <CardVideo
+         <CardVideo
             loading='lazy'
-            src={video}
+            src={`https${vidSrc}`}
             title={title}
             allowFullScreen
-         /> */}
-         <CardVideo>
+         />
+         {/* <CardVideo>
             <Player>
-               <source src={video} />
+               <source src={`https${vidSrc}`} />
             </Player>
-         </CardVideo>
+         </CardVideo> */}
          <CardBenifit>
             <span style={{ fontWeight: "bold" }}>Benifits:</span>{tags?.map((el, indx) => {
                return (
@@ -75,8 +78,8 @@ const CardBenifit = styled.span`
   font-size: 12px;
 `;
 
-const CardVideo = styled.div`
+const CardVideo = styled.iframe`
   width: 100%;
-  height: 220px;
+  height: 200px;
   background-color: #fff !important;
 `;
