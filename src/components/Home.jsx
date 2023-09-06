@@ -7,23 +7,27 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import axios from 'axios'
 import ShowData from './ShowData'
+import Loader from './Loader'
 
 
 
 const Home = () => {
    const [query, setQuery] = useState("gym")
    const [allData, setAllData] = useState([])
+   const [loading, setLoading] = useState(true)
    const container = useRef(null)
 
-   const getData = () =>{
+   const getData = () => {
       axios.get(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=${query}&numResults=10`)
-      .then((res)=>{
-         setAllData(res.data.results)
-      })
-      .catch((err)=>{
-         console.log(err)
-      })
-   
+         .then((res) => {
+            setAllData(res.data.results)
+            setLoading(false)
+         })
+         .catch((err) => {
+            setLoading(true)
+            console.log(err)
+         })
+
    }
 
    useEffect(() => {
@@ -55,11 +59,11 @@ const Home = () => {
             <Box ref={container} w={{ sm: "200px", md: "400px" }} >
             </Box>
          </Flex>
-         {/* {console.log(allData[0])} */}
-         <Box className="cardHolder" mt={{base:"20px", sm:"30px", md:"10px"}}>
-            {allData?.map((item, ind)=><ShowData  key={ind} tags={item.tags} title={item.heading} video={item.video}/>)}
-         </Box>
-         
+
+         {loading ? <Loader /> : <Box className="cardHolder" mt={{ base: "20px", sm: "30px", md: "10px" }}>
+            {allData?.map((item, ind) => <ShowData key={ind} tags={item.tags} title={item.heading} video={item.video} />)}
+         </Box>}
+
       </Box>
    )
 }
