@@ -5,9 +5,8 @@ import { Player } from 'video-react';
 
 const ShowData = ({ title, video, tags }) => {
    const keyWord = title.split(":")
-   // console.log(video)
    const vidSrc = video.slice(4)
-   console.log(vidSrc)
+   
    return (
       <CardContainer>
          <CardTitle>

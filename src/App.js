@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import StateProvider from "./provider/StateProvider";
 
 function App() {
   
   return (
-    <div>
+    <StateProvider>
       <Navbar/>
       <Home/>
-    </div>
+    </StateProvider>
   );
 }
 
