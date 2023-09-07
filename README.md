@@ -23,7 +23,7 @@ This is a gym website with search functionality, play & pause videos and do more
 
   ### *Get Started...*
  <h2>Clone the repo...</h2>
- <li>https://github.com/amansingh456/gymSocialBoat.git</li>
+ <li> git clone https://github.com/amansingh456/gymSocialBoat.git</li>
 
 
  <li>cd gymSocialBoat</li>
