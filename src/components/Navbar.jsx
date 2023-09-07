@@ -77,9 +77,9 @@ const handleQuery = (e) => {
                   p={0}
                   border="none"
                 >
-{/*                   <Button className='button boxShadow' size="sm" borderLeftRadius={0} borderRightRadius={3.3}>
+                  <Button className='button boxShadow' size="sm" borderLeftRadius={0} borderRightRadius={3.3}>
                     Search
-                  </Button> */}
+                  </Button>
                 </InputRightAddon>
               </InputGroup>
             </Box>
