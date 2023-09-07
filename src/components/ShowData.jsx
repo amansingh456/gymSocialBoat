@@ -7,7 +7,9 @@ import { SendData } from '../provider/StateProvider';
 const ShowData = ({ title, video, tags }) => {
    const {query} = useContext(SendData)
    const keyWord = title.split(":")
+   // console.log(video)
    const vidSrc = video.slice(4)
+   // console.log(`https${vidSrc}`)
    
    return (
       <CardContainer>
