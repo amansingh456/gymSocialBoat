@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useRef, useState } from 'react'
-import { Box, Button, Flex, Heading, Image, Input, InputGroup, InputLeftElement, InputRightAddon, useConst } from '@chakra-ui/react'
+import React, { useContext, useEffect, useRef } from 'react'
+import { Box, Button, Flex, Heading, Image, Input, InputGroup, InputLeftElement, InputRightAddon } from '@chakra-ui/react'
 import { Search2Icon } from "@chakra-ui/icons";
 import logo from "../assets/img/dumble.png"
 import "../styles/Navbar.css"
@@ -11,8 +11,8 @@ import { SendData } from '../provider/StateProvider';
 
 const Navbar = () => {
   const headerRef = useRef(null);
-  const {setAllData, setLoading} = useContext(SendData)
-  const [query, setQuery] = useState("" || "gym")
+  const {setAllData, setLoading, query, setQuery} = useContext(SendData)
+  
 
 
   const headerFunc = () => {
@@ -27,9 +27,8 @@ const Navbar = () => {
   };
 
   const getData = () => {
-    axios.get(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=${query}&numResults=10`)
+    axios.get(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?q=fit${query}&numResults=10`)
     .then((res) => {
-      console.log("done")
       setAllData(res.data.results)
       setLoading(false)
     })

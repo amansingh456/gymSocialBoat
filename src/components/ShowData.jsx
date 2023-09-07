@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
 // import '~video-react/styles/scss/video-react'; // or import scss // import css
 import { Player } from 'video-react';
+import { SendData } from '../provider/StateProvider';
 
 const ShowData = ({ title, video, tags }) => {
+   const {query} = useContext(SendData)
    const keyWord = title.split(":")
    const vidSrc = video.slice(4)
    
    return (
       <CardContainer>
          <CardTitle>
-            <span>Key : {keyWord[0]}</span>
+            <span>Key : {query}</span>
             <span style={{ fontFamily: "Poppins" }}>{keyWord[1]}</span>
          </CardTitle>
          <CardVideo
