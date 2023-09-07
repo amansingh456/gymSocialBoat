@@ -72,14 +72,14 @@ const handleQuery = (e) => {
                   pointerEvents="none"
                   children={<Search2Icon color="gray.600" />}
                 />
-                <Input className='boxShadow' type="text" placeholder="Search..." value={query} onChange={handleQuery} borderLeftRadius={3.3} />
+                <Input className='boxShadow' type="text" placeholder="Search..."  onChange={handleQuery} borderLeftRadius={3.3} />
                 <InputRightAddon
                   p={0}
                   border="none"
                 >
-                  <Button className='button boxShadow' size="sm" borderLeftRadius={0} borderRightRadius={3.3}>
+{/*                   <Button className='button boxShadow' size="sm" borderLeftRadius={0} borderRightRadius={3.3}>
                     Search
-                  </Button>
+                  </Button> */}
                 </InputRightAddon>
               </InputGroup>
             </Box>
